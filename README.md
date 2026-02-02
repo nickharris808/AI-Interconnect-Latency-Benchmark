@@ -196,6 +196,26 @@ python 01_AUDIT/analyze_nvidia_cluster.py --all
 
 **As clusters scale, the latency tax grows linearly. The physics doesn't change.**
 
+### Sensitivity Analysis
+
+The above numbers assume 5,000 syncs/second (high-frequency tensor+pipeline parallelism). Here's the impact at different sync rates:
+
+| Syncs/sec | Training Style | Annual Savings (GB200 NVL72) |
+|:----------|:---------------|:-----------------------------|
+| 100 | Data parallelism only | $27K/year |
+| 500 | Moderate pipeline | $136K/year |
+| 1,000 | Dense pipeline | $272K/year |
+| **5,000** | **Tensor + Pipeline** | **$1.36M/year** |
+| 10,000 | Extreme micro-batching | $2.72M/year |
+
+**The physics is constant. The impact scales with your sync frequency.**
+
+To model your own configuration:
+```bash
+# Edit configs/nvidia_gb200_nvl72.json and change "syncs_per_second"
+python 01_AUDIT/analyze_nvidia_cluster.py nvidia_gb200_nvl72
+```
+
 ---
 
 ## The Fear

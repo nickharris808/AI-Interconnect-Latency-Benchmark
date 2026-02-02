@@ -25,6 +25,7 @@
     "racks_in_cluster": 64,
     "total_gpus": 4608,
     "syncs_per_second": 5000,
+    "syncs_per_second_notes": "Assumes tensor + pipeline parallelism. Conservative: 500, Moderate: 1000, Aggressive: 5000",
     "gradient_sync_hops": 8,
     "notes": "GPT-5 class training configuration"
   },

@@ -29,7 +29,7 @@ That's only **69%** of the theoretical maximum.
 > Standard fiber moves at **200,000 km/s**.  
 > That's a **26% speed boost** — for free.
 >
-> *Patent Pending. Contact: nick@genesis.ai*
+> *Patent Pending. Contact: nickharris808@gmail.com*
 
 ---
 

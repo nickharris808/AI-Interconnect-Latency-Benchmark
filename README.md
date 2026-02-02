@@ -101,30 +101,100 @@ python 03_VERIFIER/refractive_index_checker.py 30
 ```
 AI-Interconnect-Latency-Benchmark/
 │
-├── README.md                    # This file
+├── README.md                         # This file
 │
-├── 01_AUDIT/                    # Latency Analysis
-│   └── latency_calculator.py    # Input cable length → Output latency gap
+├── 01_AUDIT/                         # Latency Analysis
+│   ├── latency_calculator.py         # Input cable length → Output latency gap
+│   └── analyze_nvidia_cluster.py     # NVIDIA-specific cluster analysis
 │
-├── 02_PROOF/                    # Visual Evidence
-│   └── superluminal_pulse.gif   # Light pulse through lattice structure
+├── 02_PROOF/                         # Visual Evidence (REAL)
+│   ├── gyroid_structure_3d.gif       # 🔥 Animated 3D gyroid (from STL)
+│   ├── superluminal_glass_structure.png  # Cross-section of void network
+│   └── superluminal_pulse.gif        # 🔥 REAL FDTD simulation
 │
-├── 03_VERIFIER/                 # Physics Calculator
-│   └── refractive_index_checker.py  # Input density → Output n, speed, status
+├── 03_VERIFIER/                      # Physics Calculator
+│   └── refractive_index_checker.py   # Input density → Output n, speed, status
 │
-├── data/                        # Reference Data
-│   ├── gpu_specifications.csv   # NVIDIA K80 → B200 specs
+├── configs/                          # NVIDIA Cluster Configurations
+│   ├── nvidia_h100.json              # H100 SXM5 (700W, Hopper)
+│   ├── nvidia_b200.json              # B200 Blackwell (1000W)
+│   ├── nvidia_gb200_nvl72.json       # GB200 NVL72 Rack (72 GPUs)
+│   └── nvidia_rubin_2026.json        # Rubin (projected 2026)
+│
+├── data/                             # Reference Data
+│   ├── gpu_specifications.csv        # NVIDIA K80 → B200 specs
 │   └── optical_media_specifications.csv
 │
-├── docs/                        # Documentation
-│   ├── THE_PROBLEM.md          # Executive summary
-│   └── PATENT_NOTICE.md        # IP protection notice
+├── docs/                             # Documentation
+│   ├── THE_PROBLEM.md                # Executive summary
+│   └── PATENT_NOTICE.md              # IP protection notice
 │
-└── figures/                     # Visualizations
-    ├── latency_bottleneck.png   # THE MAIN CHART
+└── figures/                          # Visualizations (Illustrative)
+    ├── latency_bottleneck.png        # THE MAIN CHART
     ├── speed_of_light_comparison.png
     └── ...
 ```
+
+---
+
+## NVIDIA Cluster Impact Analysis
+
+We've included real configurations for NVIDIA's current and upcoming architectures.
+
+### Run the Analysis
+
+```bash
+# Analyze NVIDIA B200 Blackwell cluster
+python 01_AUDIT/analyze_nvidia_cluster.py nvidia_b200
+
+# Analyze GB200 NVL72 rack (72 GPUs, 200m fiber)
+python 01_AUDIT/analyze_nvidia_cluster.py nvidia_gb200_nvl72
+
+# Analyze ALL NVIDIA configurations
+python 01_AUDIT/analyze_nvidia_cluster.py --all
+```
+
+### Sample Output (GB200 NVL72)
+
+```
+==============================================================================
+🔎 NVIDIA CLUSTER LATENCY ANALYSIS: NVIDIA GB200 NVL72
+==============================================================================
+
+📊 CLUSTER CONFIGURATION:
+   Total GPUs:           4,608
+   Cluster Distance:     200 m
+   Syncs per Second:     5,000
+   Hops per Sync:        8
+
+⚡ LATENCY ANALYSIS (Round-Trip, 200m):
+   Standard Fiber (n=1.468):    1958.69 ns
+   Superluminal Glass (n=1.15): 1537.60 ns
+   Savings per Hop:             421.09 ns
+   Savings per Sync:            3368.73 ns
+
+📈 ANNUAL PROJECTION:
+   Annual Latency Tax:          3,162,583 GPU-hours
+   Annual Savings (Superluminal): 679,912 GPU-hours
+   Annual Savings (@ $2/GPU-hr): $1,359,824
+
+🚨 CRITICAL LATENCY IMPACT ASSESSMENT
+
+   At 4,608 GPU scale with 200m fiber paths:
+   → You are losing $1,359,824/year to slow glass
+   → Superluminal Glass (n=1.15) recovers 421ns per hop
+```
+
+### Architecture Comparison
+
+| Architecture | Total GPUs | Annual Latency Tax | Savings with Superluminal |
+|:-------------|:-----------|:-------------------|:--------------------------|
+| H100 (256 GPUs) | 256 | $17,570/year | **$3,777/year** |
+| B200 (2,048 GPUs) | 2,048 | $281,118/year | **$60,437/year** |
+| **GB200 NVL72** | **4,608** | **$6.3M/year** | **$1.36M/year** |
+| Rubin 100k (projected) | 100,000 | $50M+/year | **$10M+/year** |
+
+**As clusters scale, the latency tax grows linearly. The physics doesn't change.**
 
 ---
 

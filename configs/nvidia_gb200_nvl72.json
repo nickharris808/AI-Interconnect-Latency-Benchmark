@@ -1,0 +1,33 @@
+{
+  "chip_name": "NVIDIA GB200 NVL72",
+  "architecture": "Blackwell + Grace",
+  "release_year": 2024,
+  "description": "72-GPU liquid-cooled rack configuration",
+  "specs": {
+    "compute_gpus": 72,
+    "grace_cpus": 36,
+    "total_fp8_tflops": 720000,
+    "total_hbm_tb": 13.5,
+    "nvlink_bisection_bandwidth_tb_s": 130,
+    "tdp_per_rack_kw": 120
+  },
+  "interconnect": {
+    "nvlink_switch_chips": 9,
+    "nvlink_domain_gpus": 72,
+    "max_nvlink_hops": 2,
+    "nvlink_latency_ns": 150,
+    "external_fabric": "InfiniBand NDR",
+    "external_fabric_distance_m": 200,
+    "external_fiber_n": 1.468,
+    "notes": "NVL72 uses copper NVLink internally; fiber for multi-rack"
+  },
+  "cluster_config": {
+    "racks_in_cluster": 64,
+    "total_gpus": 4608,
+    "syncs_per_second": 5000,
+    "gradient_sync_hops": 8,
+    "notes": "GPT-5 class training configuration"
+  },
+  "source": "NVIDIA GTC 2024 + SC24 Announcements",
+  "verified": "ESTIMATED - based on public presentations"
+}

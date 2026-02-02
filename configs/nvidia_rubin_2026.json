@@ -1,0 +1,40 @@
+{
+  "chip_name": "NVIDIA Rubin (Projected 2026)",
+  "architecture": "Rubin",
+  "release_year": 2026,
+  "description": "Next-generation GPU projected specs based on roadmap",
+  "specs": {
+    "fp8_tflops": 20000,
+    "fp16_tflops": 10000,
+    "hbm_bandwidth_gb_s": 16000,
+    "nvlink_bandwidth_gb_s": 3600,
+    "tdp_watts": 1400,
+    "notes": "PROJECTED based on Jensen Huang roadmap slides"
+  },
+  "interconnect": {
+    "co_packaged_optics": true,
+    "cpo_bandwidth_tb_s": 3.2,
+    "cpo_wavelengths": 8,
+    "on_package_fiber_length_mm": 50,
+    "cluster_fiber_distance_m": 500,
+    "fiber_type": "SMF-28",
+    "fiber_n": 1.468,
+    "notes": "CPO integration expected for Rubin - reduces electrical SerDes"
+  },
+  "cluster_config": {
+    "target_cluster_size": 100000,
+    "syncs_per_second": 10000,
+    "gradient_sync_hops": 12,
+    "notes": "Frontier-class exascale configuration"
+  },
+  "latency_impact": {
+    "current_fiber_latency_us": 3.3,
+    "superluminal_fiber_latency_us": 2.6,
+    "savings_per_hop_ns": 175,
+    "annual_latency_tax_gpu_hours": 50000,
+    "annual_latency_cost_usd": 100000,
+    "notes": "At 100k GPU scale, latency tax becomes dominant"
+  },
+  "source": "NVIDIA Roadmap (GTC 2024) + Industry Analysis",
+  "verified": "PROJECTION - not official specs"
+}

@@ -1,0 +1,28 @@
+{
+  "chip_name": "NVIDIA H100 SXM5",
+  "architecture": "Hopper",
+  "release_year": 2023,
+  "specs": {
+    "fp8_tflops": 3958,
+    "fp16_tflops": 1979,
+    "hbm_bandwidth_gb_s": 3350,
+    "nvlink_bandwidth_gb_s": 900,
+    "tdp_watts": 700
+  },
+  "interconnect": {
+    "nvlink_4_lanes": 18,
+    "nvlink_4_speed_gbps": 50,
+    "typical_rack_distance_m": 3,
+    "typical_cluster_distance_m": 100,
+    "fiber_type": "SMF-28",
+    "fiber_n": 1.468
+  },
+  "cluster_config": {
+    "dgx_nodes": 32,
+    "gpus_per_node": 8,
+    "total_gpus": 256,
+    "syncs_per_second": 1000
+  },
+  "source": "NVIDIA H100 Tensor Core GPU Datasheet (2023)",
+  "verified": true
+}

@@ -53,7 +53,10 @@ MEDIA = {
     },
     "superluminal": {
         "name": "Superluminal Glass™",
-        "n": 1.1524,  # From Maxwell-Garnett: 30.6% solid, 69.4% void
+        "n": 1.1524,  # Patent claimed value
+        # Note: n_eff = 1.1524 requires f_solid ≈ 29.75% (70.25% void)
+        # The gyroid threshold in generate_low_index_lattice.py achieves this
+        # Use refractive_index_checker.py for exact calculations
         "source": "Genesis Patent 4 (Provisional)"
     },
     "hollow_core": {

@@ -1,0 +1,5 @@
+# AI Interconnect Latency Benchmark
+# Requirements for running benchmarks and generating figures
+
+numpy>=1.24.0
+matplotlib>=3.7.0

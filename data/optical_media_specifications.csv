@@ -1,0 +1,9 @@
+medium_name,refractive_index,speed_km_s,percent_of_vacuum,attenuation_db_km,cost_relative,source
+Vacuum,1.0000,299792,100.00,0,N/A,Physics definition
+Air (STP),1.0003,299702,99.97,0,N/A,CRC Handbook
+Hollow-Core Fiber,1.003,298896,99.70,1.5,50x,OFS/Lumenisity datasheet
+Low-Index Glass (Patent Pending),1.15,260689,86.96,TBD,TBD,Genesis Research
+Fused Silica,1.444,207613,69.25,0.2,1x,Corning HPFS datasheet
+SMF-28 Fiber,1.4682,204179,68.11,0.18,1x,Corning SMF-28 Ultra
+Multimode Fiber (OM4),1.48,202562,67.57,3.5,0.8x,Various manufacturers
+Silicon Waveguide,3.48,86147,28.74,1.0,N/A,Soref & Bennett 1987

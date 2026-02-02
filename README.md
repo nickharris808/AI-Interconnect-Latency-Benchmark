@@ -290,9 +290,9 @@ Source: Patent 4 Data Room — `neural_glass.stl` (8.4 MB, 176K triangles)*
 
 ![Superluminal Pulse](02_PROOF/superluminal_pulse.gif)
 
-*Real FDTD simulation (gprMax) of 1310nm light propagating through our inverse-designed coupler.  
-This is actual simulation output from cloud compute, not a mockup.  
-Source: Patent 4 Data Room — Inductiva cloud simulation*
+*Real FDTD simulation (gprMax) of 1310nm light propagating through our inverse-designed coupler.*
+**Note:** The simulation is labeled "Patent 13" because the **Coupler** (the entry ramp) is a distinct patent from the **Glass** (Patent 4, the road). Both are required for the system.
+
 
 ### The Latency Bottleneck (Illustrative)
 

@@ -454,7 +454,7 @@ The **technologies referenced** (architected photonic substrates, inverse-design
 ### Licensing
 
 For licensing inquiries:
-- **Email:** nick@genesis.ai
+- **Email:** nickharris808@gmail.com
 - **Subject:** "Photonics IP Inquiry - [Your Company]"
 
 ---

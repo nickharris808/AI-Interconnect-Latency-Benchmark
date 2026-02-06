@@ -1,40 +1,50 @@
 {
-  "chip_name": "NVIDIA Rubin (Projected 2026)",
-  "architecture": "Rubin",
+  "chip_name": "Rubin R100 (Projected 2026)",
+  "generation": "Rubin",
   "release_year": 2026,
-  "description": "Next-generation GPU projected specs based on roadmap",
+  "source": "NVIDIA Roadmap (GTC 2024), Industry Projections",
+  "verified": false,
+  "verified_notes": "ALL SPECIFICATIONS ARE PROJECTIONS based on roadmap trends",
+  
   "specs": {
-    "fp8_tflops": 20000,
-    "fp16_tflops": 10000,
-    "hbm_bandwidth_gb_s": 16000,
-    "nvlink_bandwidth_gb_s": 3600,
-    "tdp_watts": 1400,
-    "notes": "PROJECTED based on Jensen Huang roadmap slides"
+    "fp8_tflops": 18000,
+    "fp8_tflops_notes": "PROJECTED: ~2x B200 based on Moore's Law trajectory",
+    "fp16_tflops": 9000,
+    "bf16_tflops": 9000,
+    "fp32_tflops": 180,
+    "hbm_capacity_gb": 288,
+    "hbm_capacity_notes": "PROJECTED: HBM4 with higher density",
+    "hbm_bandwidth_tb_s": 12.0,
+    "tdp_watts": 1200,
+    "source_notes": "All specs are PROJECTIONS for planning purposes"
   },
+  
   "interconnect": {
-    "co_packaged_optics": true,
-    "cpo_bandwidth_tb_s": 3.2,
-    "cpo_wavelengths": 8,
-    "on_package_fiber_length_mm": 50,
-    "cluster_fiber_distance_m": 500,
-    "fiber_type": "SMF-28",
-    "fiber_n": 1.468,
-    "notes": "CPO integration expected for Rubin - reduces electrical SerDes"
+    "nvlink_version": 6.0,
+    "nvlink_version_notes": "PROJECTED",
+    "nvlink_bandwidth_gb_s": 3600,
+    "nvswitch_generation": 5,
+    "typical_rack_distance_m": 5,
+    "typical_cluster_distance_m": 500,
+    "typical_cluster_distance_notes": "100,000 GPU cluster spans entire datacenter campus",
+    "external_fabric": "Next-gen optical fabric (TBD)",
+    "external_fabric_bandwidth_gb_s": 200,
+    "fiber_n": 1.4682,
+    "source_notes": "Assumes continued use of standard SMF-28 fiber"
   },
+  
   "cluster_config": {
-    "target_cluster_size": 100000,
-    "syncs_per_second": 10000,
+    "system": "Rubin Exascale Cluster (PROJECTED)",
+    "gpus_per_rack": 72,
+    "racks_per_pod": 128,
+    "pods_per_cluster": 11,
+    "total_gpus": 100000,
+    "syncs_per_second": 2000,
+    "syncs_per_second_notes": "PROJECTED: Higher parallelism for trillion-parameter models",
     "gradient_sync_hops": 12,
-    "notes": "Frontier-class exascale configuration"
-  },
-  "latency_impact": {
-    "current_fiber_latency_us": 3.3,
-    "superluminal_fiber_latency_us": 2.6,
-    "savings_per_hop_ns": 175,
-    "annual_latency_tax_gpu_hours": 50000,
-    "annual_latency_cost_usd": 100000,
-    "notes": "At 100k GPU scale, latency tax becomes dominant"
-  },
-  "source": "NVIDIA Roadmap (GTC 2024) + Industry Analysis",
-  "verified": "PROJECTION - not official specs"
+    "gradient_sync_hops_notes": "Fat-tree topology for 100k GPUs",
+    "fiber_fraction": 0.80,
+    "fiber_fraction_notes": "80% of syncs are long-haul optical at this scale",
+    "source_notes": "SPECULATIVE configuration for planning; not official NVIDIA specs"
+  }
 }

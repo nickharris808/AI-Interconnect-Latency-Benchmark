@@ -1,30 +1,45 @@
 {
-  "chip_name": "NVIDIA B200 (Blackwell)",
-  "architecture": "Blackwell",
+  "chip_name": "B200 Blackwell",
+  "generation": "Blackwell",
   "release_year": 2024,
+  "source": "NVIDIA Blackwell Architecture Technical Brief (GTC 2024)",
+  "verified": false,
+  "verified_notes": "Some specs estimated from GTC keynote; not all verified",
+  
   "specs": {
     "fp8_tflops": 9000,
+    "fp8_tflops_notes": "ESTIMATED from GTC 2024 keynote",
     "fp16_tflops": 4500,
-    "hbm_bandwidth_gb_s": 8000,
-    "nvlink_bandwidth_gb_s": 1800,
-    "tdp_watts": 1000
+    "bf16_tflops": 4500,
+    "fp32_tflops": 90,
+    "hbm_capacity_gb": 192,
+    "hbm_bandwidth_tb_s": 8.0,
+    "tdp_watts": 1000,
+    "source_notes": "FP8/FP16/BF16 estimated from ~2.3x H100 claims"
   },
+  
   "interconnect": {
-    "nvlink_5_lanes": 18,
-    "nvlink_5_speed_gbps": 100,
+    "nvlink_version": 5.0,
+    "nvlink_bandwidth_gb_s": 1800,
+    "nvlink_links_per_gpu": 18,
     "typical_rack_distance_m": 3,
     "typical_cluster_distance_m": 100,
-    "fiber_type": "SMF-28",
-    "fiber_n": 1.468,
-    "notes": "NVLink 5.0 uses copper for short range; fiber for cluster scale"
+    "external_fabric": "InfiniBand NDR/XDR",
+    "external_fabric_bandwidth_gb_s": 100,
+    "fiber_n": 1.4682,
+    "source_notes": "NVLink 5.0 1.8TB/s total bandwidth (GTC 2024)"
   },
+  
   "cluster_config": {
-    "dgx_superpod_nodes": 256,
+    "system": "DGX B200 SuperPOD (Projected)",
     "gpus_per_node": 8,
+    "nodes_per_rack": 8,
+    "racks_per_pod": 16,
     "total_gpus": 2048,
-    "syncs_per_second": 2000,
-    "notes": "Higher sync rate for larger model parallelism"
-  },
-  "source": "NVIDIA GTC 2024 Blackwell Architecture Keynote",
-  "verified": "ESTIMATED - specs not final at time of writing"
+    "syncs_per_second": 1500,
+    "gradient_sync_hops": 6,
+    "fiber_fraction": 0.60,
+    "fiber_fraction_notes": "2048 GPUs span multiple pods; ~60% of syncs traverse optical",
+    "source_notes": "Projected configuration based on Blackwell DGX announcements"
+  }
 }

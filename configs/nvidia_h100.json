@@ -1,28 +1,43 @@
 {
-  "chip_name": "NVIDIA H100 SXM5",
-  "architecture": "Hopper",
-  "release_year": 2023,
+  "chip_name": "H100 SXM5",
+  "generation": "Hopper",
+  "release_year": 2022,
+  "source": "NVIDIA H100 Tensor Core GPU Datasheet (2023)",
+  "verified": true,
+  
   "specs": {
     "fp8_tflops": 3958,
     "fp16_tflops": 1979,
-    "hbm_bandwidth_gb_s": 3350,
-    "nvlink_bandwidth_gb_s": 900,
-    "tdp_watts": 700
+    "bf16_tflops": 1979,
+    "fp32_tflops": 67,
+    "hbm_capacity_gb": 80,
+    "hbm_bandwidth_tb_s": 3.35,
+    "tdp_watts": 700,
+    "source_notes": "All specs from NVIDIA official datasheet"
   },
+  
   "interconnect": {
-    "nvlink_4_lanes": 18,
-    "nvlink_4_speed_gbps": 50,
+    "nvlink_version": 4.0,
+    "nvlink_bandwidth_gb_s": 900,
+    "nvlink_links_per_gpu": 18,
     "typical_rack_distance_m": 3,
     "typical_cluster_distance_m": 100,
-    "fiber_type": "SMF-28",
-    "fiber_n": 1.468
+    "external_fabric": "InfiniBand NDR",
+    "external_fabric_bandwidth_gb_s": 50,
+    "fiber_n": 1.4682,
+    "source_notes": "NVLink 4.0 specs verified; fabric distance typical for DGX SuperPOD"
   },
+  
   "cluster_config": {
-    "dgx_nodes": 32,
+    "system": "DGX H100 SuperPOD",
     "gpus_per_node": 8,
+    "nodes_per_rack": 4,
+    "racks_per_pod": 8,
     "total_gpus": 256,
-    "syncs_per_second": 1000
-  },
-  "source": "NVIDIA H100 Tensor Core GPU Datasheet (2023)",
-  "verified": true
+    "syncs_per_second": 1000,
+    "gradient_sync_hops": 4,
+    "fiber_fraction": 0.50,
+    "fiber_fraction_notes": "256 GPUs fit in ~8 racks; ~50% of syncs traverse optical fabric",
+    "source_notes": "Based on DGX SuperPOD architecture"
+  }
 }

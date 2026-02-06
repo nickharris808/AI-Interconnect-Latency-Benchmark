@@ -1,100 +1,124 @@
-# Patent Notice
+# Intellectual Property Notice
 
-## Provisional Patent Applications
+## 35 U.S.C. §287 Marking Notice
 
-The following technologies referenced in this repository are protected by provisional patent applications filed with the United States Patent and Trademark Office:
+This repository and related technologies are protected by pending United States patent applications.
 
-### Low-Index Architected Photonic Substrates
+---
+
+## Patent-Pending Technologies
+
+The following innovations referenced in this repository are subject to provisional patent applications filed with the United States Patent and Trademark Office (USPTO):
+
+### Patent 4: Architected Photonic Substrates ("Superluminal Glass")
+
+**Title:** Architected Photonic Substrates with Sub-Unity Effective Refractive Index for Low-Latency Optical Interconnects
+
+**Coverage includes (but is not limited to):**
+- Triply-Periodic Minimal Surface (TPMS) lattice geometries achieving n < 1.20
+- Gyroid topology with 60-80% void fraction for optical applications
+- Manufacturing methods for nano-scale (< 400nm feature) porous silica
+- Integration methods with silicon photonics and fiber optic systems
+- Gradient-density structures for impedance matching
 
 **Filing Date:** January 2026  
-**Status:** Patent Pending  
-**Application Type:** Provisional (35 U.S.C. §111(b))
-
-**Claimed Technologies Include:**
-- Architected photonic substrates with effective refractive index below 1.25
-- Triply-Periodic Minimal Surface (TPMS) void architectures for optical media
-- Methods for manufacturing low-index optical substrates
-- Inverse-designed optical couplers for low-index media
-- Self-compensating thermal substrates for precision optics
-
-### Scope of Protection
-
-The provisional patent applications establish priority date for:
-1. Structural designs achieving $n_{eff} < 1.25$
-2. Manufacturing processes for such structures
-3. Integration methods with existing optical systems
-4. Specific geometric optimizations (Gyroid, Schwarz-P, etc.)
+**Application Type:** Provisional  
+**Status:** Pending
 
 ---
 
-## What This Repository Contains
+### Patent 13: Inverse-Designed Optical Couplers
 
-### Open Source (MIT License)
-- ✅ Benchmark code for calculating latency
-- ✅ Educational physics calculations
-- ✅ Visualization scripts
-- ✅ Published GPU and fiber specifications
-- ✅ Academic references and citations
+**Title:** Topology-Optimized Optical Couplers for Efficient Coupling to Low-Index Architected Substrates
 
-### NOT Included (Patent Protected)
-- ❌ Specific lattice geometries or parameters
-- ❌ Manufacturing methods or processes
-- ❌ Optimization algorithms or scripts
-- ❌ GDSII, STL, or design files
-- ❌ Proprietary simulation results
-- ❌ Void fraction specifications
-- ❌ Material compositions
+**Coverage includes (but is not limited to):**
+- Adjoint gradient optimization methods for photonic device design
+- Coupler geometries achieving < 0.1 dB insertion loss
+- Multi-mode to single-mode transitions in architected media
+- Wavelength-division multiplexing compatible designs
+
+**Filing Date:** January 2026  
+**Application Type:** Provisional  
+**Status:** Pending
 
 ---
 
-## 35 U.S.C. §287 Notice
+## Open Source Components
 
-This technology is protected by one or more pending patent applications. The marking of products or publications with "Patent Pending" provides constructive notice under 35 U.S.C. §287.
+The following components of this repository are released under the **MIT License** and are NOT subject to patent claims:
+
+- All Python scripts (`.py` files)
+- Configuration files (`.json` files)
+- Documentation (`.md` files)
+- Generated visualizations and figures
+- CSV data files derived from public specifications
+
+These components are provided to enable independent verification of the physics and economic analysis presented herein.
+
+---
+
+## Proprietary Components (Not Included)
+
+The following components are NOT included in this public repository and remain proprietary:
+
+- Manufacturing CAD files (STL, GDSII, STEP)
+- Specific lattice threshold parameters
+- Full FDTD simulation input decks
+- Adjoint optimization source code
+- Process recipes and fabrication parameters
+
+Access to these components is available under license. See [Licensing](#licensing-inquiries) below.
+
+---
+
+## Freedom to Operate Notice
+
+Researchers and engineers may use the **publicly available scripts and documentation** in this repository for:
+
+- Academic research and publication
+- Independent verification of claims
+- Evaluation of potential licensing opportunities
+- Educational purposes
+
+Commercial use of the **patent-pending inventions** (not the scripts) without a license may constitute infringement under 35 U.S.C. §271.
+
+If you have questions about freedom to operate, please consult your legal counsel.
 
 ---
 
 ## Licensing Inquiries
 
-We are open to discussions with qualified parties including:
+Genesis Research offers patent licenses under the following structures:
 
-### Potential Licensees
-- **Datacenter Operators:** Google, Microsoft, Meta, Amazon, Oracle
-- **GPU Manufacturers:** NVIDIA, AMD, Intel
-- **Optical Component Manufacturers:** Corning, II-VI, Lumentum, Coherent
-- **Semiconductor Foundries:** TSMC, Samsung, GlobalFoundries, Intel Foundry
-- **EDA Companies:** Synopsys, Cadence, Ansys, Mentor
-- **Lithography Equipment:** ASML, Canon, Nikon
+| License Type | Description | Typical Terms |
+|:-------------|:------------|:--------------|
+| **Evaluation License** | 90-day access to full data room for technical due diligence | No fee; NDA required |
+| **Research License** | Non-commercial use for R&D and prototyping | Nominal fee; results shared |
+| **Field-of-Use License** | Commercial rights in specific application domain | Negotiated; royalty or lump-sum |
+| **Exclusive License** | Sole rights in defined field (e.g., datacenter interconnects) | Premium terms |
+| **Acquisition** | Full transfer of IP rights | Make an offer |
 
-### Licensing Models Available
-- Exclusive licensing (by application domain)
-- Non-exclusive licensing with royalties
-- Cross-licensing arrangements
-- Joint development agreements
-- Acquisition
+---
 
-### Contact Information
+## Contact
 
-**Email:** nick@genesis.ai  
-**Subject Line:** "Photonics IP Inquiry - [Your Company]"
+**Genesis Research**
+Patent Pending | Provisional Applications Filed
 
-Please include:
-- Your name and title
-- Company name
-- Specific technology of interest
-- Proposed use case
+**For Licensing Inquiries:**
+- Email: nick@genesis.ai
+- Subject: "Patent Licensing Inquiry - [Your Company] - [Application Area]"
+
+**Response Time:** All serious inquiries receive a response within 48 hours.
 
 ---
 
 ## Legal Disclaimer
 
-The information in this repository is provided for educational and research purposes. Nothing in this repository constitutes:
-- Legal advice
-- A warranty of patentability
-- A license to practice any patented technology
-- An offer to sell or license intellectual property
+This notice is provided for informational purposes and does not constitute legal advice. Patent applications are pending; claims have not been examined or allowed. The scope of any issued patents may differ from the descriptions provided herein.
 
-For formal licensing terms, please contact us directly.
+All company and product names mentioned are trademarks or registered trademarks of their respective owners. Genesis Research is not affiliated with NVIDIA, Corning, ASML, or any other company mentioned unless explicitly stated.
 
 ---
 
-*Last Updated: February 2026*
+*Last updated: February 2026*

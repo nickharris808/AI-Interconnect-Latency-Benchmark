@@ -26,7 +26,7 @@ We introduce **Superluminal Glass**, a patent-pending architected photonic subst
 **Important Caveats:**
 - Group Velocity Dispersion (GVD) in architected glass is unknown and could degrade pulse integrity — see Section 7.3.
 - Nano-scale fabrication (50 nm features for 1550 nm light) requires EUV lithography; the macro-scale (radio/6G) version is 3D-printable today — see Section 2.3.
-- An optical coupler is needed to efficiently couple light into the lattice. Adjoint optimization (Ceviche 2D FDFD) has achieved 0.01 dB insertion loss in 2D simulation; 3D validation is pending — see Section 8.3.
+- An optical coupler is needed to efficiently couple light into the lattice. The adjoint optimization pipeline (Ceviche 2D FDFD + autograd) is implemented and reproducible, but **the target loss has not yet been independently validated in 3D** — see Section 8.3.
 
 **Second application — Precision Optics (Section 8.5):** The same Gyroid architecture, with a radial density gradient, creates substrates where thermal deformation becomes predictable (R² = 0.98) and correctable by a single actuator. This solves ASML's thermal drift problem in High-NA EUV systems. Validated by real CalculiX FEM simulation.
 
@@ -541,7 +541,7 @@ These are things we have NOT characterized but which any serious evaluator will 
 | Claim | Status | Evidence |
 |:------|:-------|:---------|
 | Gyroid TPMS architecture achieving n < 1.20 | Design IP | `generate_low_index_lattice.py`, STL files (in patent data room) |
-| Inverse-designed optical coupler (<0.05 dB) | **Demonstrated in 2D** | Adjoint optimizer: 0.01 dB across O-band (patent data room) |
+| Inverse-designed optical coupler (<0.5 dB target) | **Pipeline implemented (2D)** | Adjoint optimizer + GDS exporter + recorded runs (patent data room) |
 | Adjoint optimization methodology | Design IP + working code | Patent 13; `adjoint_coupler_optimizer.py` in data room |
 | Zernike-predictable substrates (R²>0.95) | **Validated (real FEM)** | CalculiX FEM: R²=0.981 (patent data room, task IDs traceable) |
 | Graded-density Gyroid for thermal control | Design IP + STL/GDSII | `generate_low_index_lattice_v2.py --graded` in data room |
@@ -551,13 +551,13 @@ These are things we have NOT characterized but which any serious evaluator will 
 | Component | Target | Current Status | Gap | Source |
 |:----------|:-------|:---------------|:----|:-------|
 | **Superluminal Glass** | n ≈ 1.15 | EMT-verified design only | **Needs FDTD simulation & physical fabrication** | Section 2.1 |
-| **Optical Coupler** | 0.024 dB loss | **0.01 dB** (adjoint-optimized 2D FDFD) | **2D target met; 3D validation pending** | Patent data room |
-| **Optical Coupler** (prior) | — | 5.6 dB (unoptimized 3D FDTD) | Superseded by adjoint result | Patent data room |
+| **Optical Coupler** | 0.024 dB loss | **Adjoint pipeline implemented (2D)** | **Optimization campaign + 3D validation pending** | Patent data room |
+| **Optical Coupler** (baseline) | — | 5.6 dB (unoptimized 3D FDTD) | Gap remains | Patent data room |
 | **Zernike Substrate** | R²>0.95 | **R²=0.981** (real CalculiX FEM) | **Target exceeded** | Patent data room |
 | **Nano-scale Fabrication** | EUV lithography | **Design IP only** — no fabricated part exists | **Requires ASML partnership or 2PP lithography** | GDSII files in patent data room |
 | **Macro-scale (Radio)** | SLA/DLP printing | **Printable now** | Production-ready | STL files in patent data room |
 
-**On the optical coupler:** The prior unoptimized result (5.6 dB) has been superseded. Running the included adjoint optimization pipeline (`adjoint_coupler_optimizer.py`, Ceviche FDFD + autograd) achieved **0.01 dB insertion loss (99.7% transmission)** across the full O-band (1260–1360nm) in 2D simulation. Full 3D FDTD validation (Meep) is the next step before claiming production-ready performance. The GDSII mask export pipeline (`export_coupler_gdsii.py`) produces DRC-clean foundry masks from the optimized geometry.
+**On the optical coupler:** The prior unoptimized result (5.6 dB) is the honest baseline. We have implemented a full adjoint optimization + GDSII export pipeline (`adjoint_coupler_optimizer.py`, `export_coupler_gdsii.py`) and recorded real 2D runs in the patent data room. The remaining work is (1) a longer constrained inverse-design campaign (minimum feature size + stronger binarization) and (2) full 3D FDTD validation (Meep) with proper flux normalization before claiming production-ready insertion loss.
 
 **On the Zernike substrate:** The graded-density Gyroid lattice channels thermal deformation into Piston mode (Z1), increasing predictability from R²=0.34 to R²=0.98 (validated by real CalculiX FEM on Inductiva cloud HPC). This is immediately relevant to ASML's thermal drift problem in 500W EUV exposure systems — see Section 8.5.
 
@@ -604,7 +604,7 @@ You are buying:
 - The **manufacturing FILES** (STL for radio; GDSII for photonics)
 - The **right to iterate** on the provided starting point
 
-You are **NOT** buying a plug-and-play finished component. The 2D adjoint optimization has been demonstrated (0.01 dB). Full 3D validation and physical fabrication have not been performed.
+You are **NOT** buying a plug-and-play finished component. The inverse-design pipeline exists and is reproducible, but full 3D validation and physical fabrication have not been performed.
 
 ---
 

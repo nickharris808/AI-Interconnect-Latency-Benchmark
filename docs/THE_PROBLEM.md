@@ -62,10 +62,12 @@ What if we could make the glass faster?
 
 Specifically: what if we replaced solid glass (n=1.468) with architected glass—a precise lattice of solid glass and air voids?
 
-Using Maxwell-Garnett effective medium theory:
+Using a conservative **volume-average-of-permittivity** effective-medium estimate (the “Wiener upper bound” / parallel mixing rule; see the full EMT comparison in the main `README.md`):
 - 70% air voids + 30% silica
-- Effective refractive index: n = 1.15
-- Speed of light: 260,146 km/s (87% of vacuum speed)
+- Effective refractive index: \(n_\mathrm{eff} \approx 1.15\) (conservative baseline)
+- Speed of light: \(c/n_\mathrm{eff} \approx 260{,}690\) km/s (~87% of vacuum speed)
+
+For completeness: Bruggeman EMT (more appropriate for co-continuous structures like a gyroid) yields a slightly lower index (~1.13), while true Maxwell-Garnett yields a much lower index (~1.05) but is not reliable at ~70% void fraction.
 
 **That's a 27% speed improvement over standard fiber.**
 
